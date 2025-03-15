@@ -41,6 +41,12 @@
     },
     "Website": {
       "type": "string"
+    },
+    "news": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::news.news",
+      "inversedBy": "partners"
     }
   }
 }

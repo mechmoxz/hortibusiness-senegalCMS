@@ -400,6 +400,7 @@ export interface ApiHomeHome extends Struct.SingleTypeSchema {
 export interface ApiNewsNews extends Struct.CollectionTypeSchema {
   collectionName: 'news_items';
   info: {
+    description: '';
     displayName: 'News';
     pluralName: 'news-items';
     singularName: 'news';
@@ -408,6 +409,7 @@ export interface ApiNewsNews extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    Content: Schema.Attribute.Text;
     Cover: Schema.Attribute.Media<'images' | 'files'> &
       Schema.Attribute.Required;
     createdAt: Schema.Attribute.DateTime;
@@ -419,6 +421,7 @@ export interface ApiNewsNews extends Struct.CollectionTypeSchema {
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::news.news'> &
       Schema.Attribute.Private;
     Location: Schema.Attribute.String & Schema.Attribute.Required;
+    partners: Schema.Attribute.Relation<'oneToMany', 'api::partner.partner'>;
     publishedAt: Schema.Attribute.DateTime;
     Title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
@@ -451,6 +454,7 @@ export interface ApiPartnerPartner extends Struct.CollectionTypeSchema {
     Logo: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     Long_Description: Schema.Attribute.Text & Schema.Attribute.Required;
     Name: Schema.Attribute.String & Schema.Attribute.Required;
+    news: Schema.Attribute.Relation<'manyToOne', 'api::news.news'>;
     publishedAt: Schema.Attribute.DateTime;
     Short_Description: Schema.Attribute.Text &
       Schema.Attribute.Required &
