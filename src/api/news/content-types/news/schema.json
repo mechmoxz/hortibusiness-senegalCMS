@@ -44,6 +44,16 @@
       "relation": "oneToMany",
       "target": "api::partner.partner",
       "mappedBy": "news"
+    },
+    "Images": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true
     }
   }
 }
