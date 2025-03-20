@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "partners",
+  "collectionName": "publications",
   "info": {
-    "singularName": "partner",
-    "pluralName": "partners",
-    "displayName": "Partner",
+    "singularName": "publication",
+    "pluralName": "publications",
+    "displayName": "Publications",
     "description": ""
   },
   "options": {
@@ -16,10 +16,10 @@
     }
   },
   "attributes": {
-    "Logo": {
+    "File": {
       "type": "media",
       "multiple": false,
-      "required": false,
+      "required": true,
       "allowedTypes": [
         "images",
         "files",
@@ -28,11 +28,11 @@
       ],
       "pluginOptions": {
         "i18n": {
-          "localized": false
+          "localized": true
         }
       }
     },
-    "Name": {
+    "Authors": {
       "type": "string",
       "required": true,
       "pluginOptions": {
@@ -41,47 +41,34 @@
         }
       }
     },
-    "Short_Description": {
+    "Title": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "Description": {
       "type": "text",
-      "required": true,
-      "maxLength": 80,
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       }
     },
-    "Long_Description": {
-      "type": "text",
-      "required": true,
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
+    "Date": {
+      "type": "date"
     },
-    "slug": {
-      "type": "string",
-      "required": true,
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      }
-    },
-    "Website": {
-      "type": "string",
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      }
-    },
-    "news": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::news.news",
-      "inversedBy": "partners"
+    "Cover": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
     }
   }
 }
